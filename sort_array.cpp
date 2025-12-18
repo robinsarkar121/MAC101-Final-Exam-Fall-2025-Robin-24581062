@@ -2,8 +2,8 @@
  * CS101 Final Exam - File 1: sort_array.cpp
  * The Logic Test: Sorting an Array
  *
- * Student Name: ________________________
- * Date: ________________________
+ * Student Name: Robin Sarkar
+ * Date: 12/18/2025
  *
  * OBJECTIVE:
  * Write a program that sorts an array of 100 integers in ascending order.
@@ -29,47 +29,49 @@ using namespace std;
 
 int main()
 {
-  // An unsorted array of numbers 1-100 for you to sort
-  int numbers[100] = {
-      63, 12, 89, 45, 23, 78, 34, 91, 56, 7,
-      82, 29, 67, 14, 95, 41, 18, 73, 50, 36,
-      98, 5, 61, 27, 84, 48, 10, 75, 32, 69,
-      21, 58, 93, 15, 80, 44, 3, 70, 37, 96,
-      52, 19, 86, 31, 65, 9, 77, 42, 24, 88,
-      54, 1, 71, 39, 94, 25, 81, 47, 13, 68,
-      35, 99, 59, 22, 85, 46, 11, 74, 30, 97,
-      51, 6, 72, 38, 92, 26, 83, 49, 16, 66,
-      33, 100, 57, 20, 87, 43, 8, 76, 40, 62,
-      28, 90, 55, 17, 79, 4, 64, 2, 53, 60};
+    // the given unsorted array with a size of 100
+    int numbers[100] = {
+        63, 12, 89, 45, 23, 78, 34, 91, 56, 7,
+        82, 29, 67, 14, 95, 41, 18, 73, 50, 36,
+        98, 5, 61, 27, 84, 48, 10, 75, 32, 69,
+        21, 58, 93, 15, 80, 44, 3, 70, 37, 96,
+        52, 19, 86, 31, 65, 9, 77, 42, 24, 88,
+        54, 1, 71, 39, 94, 25, 81, 47, 13, 68,
+        35, 99, 59, 22, 85, 46, 11, 74, 30, 97,
+        51, 6, 72, 38, 92, 26, 83, 49, 16, 66,
+        33, 100, 57, 20, 87, 43, 8, 76, 40, 62,
+        28, 90, 55, 17, 79, 4, 64, 2, 53, 60
+    };
 
-  // TODO: Display the array BEFORE sorting
-  cout << "Array before sorting:" << endl;
-  // Hint: Use a loop to print the first 10-20 elements from the numbers array
-  // Example approach: for(int i = 0; i < 10; i++) { cout << numbers[i] << " "; }
+    // Displaying the array before sorting
+    cout << "Array before sorting:" << endl;
+    for (int i = 0; i < 100; i++) //the for loops check all the numbers in the array and displays the unsorted numbers using cout
+    {
+        cout << numbers[i] << " ";//using " " to have gap between the numbers
+    }
+    cout << endl;
 
-  // TODO: Implement your sorting algorithm here
-  // BUBBLE SORT APPROACH:
-  // - Outer loop: goes through the array multiple times (think: how many passes do you need?)
-  // - Inner loop: compares adjacent elements (compare each pair in the array)
-  // - If elements are in wrong order, swap them
-  //
-  // THINK ABOUT:
-  // - What condition determines if two numbers are in the "wrong order"?
-  // - How do you compare element at position j with element at position j+1?
-  // - What three steps are needed to swap two values? (Hint: you need a temporary variable)
-  //
-  // STRUCTURE HINT:
-  // for(outer loop - controls how many times we pass through) {
-  //     for(inner loop - goes through comparing adjacent pairs) {
-  //         if(need to swap?) {
-  //             // perform the swap using a temp variable
-  //         }
-  //     }
-  // }
+    // using bubble sort method to sort the data in accending order
+    for (int i = 0; i < 100-1; i++)          // outer loop check the number of passes through the loop and we use 100-1 since the lsat number will be sorted anyways
+    {
+        for (int j = 0; j < 99 - i - 1; j++)  // inner loop campares the number in pairs and swaps the adjecent element if they are not in order
+        {
+            if (numbers[j] > numbers[j + 1]) // the if function swaps the order of the number in accending order the same as we did in class with coffee question
+            {
+                int temp = numbers[j];
+                numbers[j] = numbers[j + 1];
+                numbers[j + 1] = temp;
+            }
+        }
+    }
 
-  // TODO: Display the array AFTER sorting
-  cout << "\nArray after sorting:" << endl;
-  // Hint: Print the first 10-20 elements to verify they're now in order (should be 1, 2, 3, ...)
+    // Display the sorted array in accending order
+    cout << "\nArray after sorting:" << endl;
+    for (int i = 0; i < 100; i++)
+    {
+        cout << numbers[i] << " "; //again we use " " to have gaps between the numbers
+    }
+    cout << endl;
 
-  return 0;
+    return 0;
 }
