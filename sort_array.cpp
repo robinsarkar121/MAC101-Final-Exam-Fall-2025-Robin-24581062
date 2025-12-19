@@ -52,14 +52,21 @@ int main()
     cout << endl;
 
     // using bubble sort method to sort the data in accending order
-    for (int i = 0; i < 100-1; i++)          // outer loop check the number of passes through the loop and we use 100-1 since the lsat number will be sorted anyways
+    for (int i = 0; i < 100-1; i++) // outer loop check the number of passes through the loop and we use 100-1 since the lsat number will be sorted anyways
     {
-        for (int j = 0; j < 99 - i - 1; j++)  // inner loop campares the number in pairs and swaps the adjecent element if they are not in order
+        // inner loop campares the number in pairs and swaps the adjecent element if they are not in order
+        for (int j = 0; j < 100 - i - 1; j++)
         {
-            if (numbers[j] > numbers[j + 1]) // the if function swaps the order of the number in accending order the same as we did in class with coffee question
+            // use if function to check wheither the current element is greater than the next element
+            if (numbers[j] > numbers[j + 1])
             {
+                // Store the current element in a temporary variable same as we did on class using coffee excercise
                 int temp = numbers[j];
+
+                // Move the next element into the current position
                 numbers[j] = numbers[j + 1];
+
+                // Place the original current element into the next position
                 numbers[j + 1] = temp;
             }
         }
